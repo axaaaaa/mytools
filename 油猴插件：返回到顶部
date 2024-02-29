@@ -1,0 +1,36 @@
+// ==UserScript==
+// @name         返回到页面顶部
+// @namespace    http://your.namespace.com
+// @version      0.1
+// @description  在页面上添加一个按钮，点击按钮返回到页面顶部
+// @author       Your Name
+// @match        https://*/*
+// @match        http://*/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // 创建一个按钮元素
+    var backButton = document.createElement('button');
+    backButton.textContent = '返回顶部';
+    backButton.style.position = 'fixed';
+    backButton.style.bottom = '20px';
+    backButton.style.right = '20px';
+    backButton.style.zIndex = '9999';
+    backButton.style.padding = '10px';
+    backButton.style.border = 'none';
+    backButton.style.borderRadius = '5px';
+    backButton.style.background = '#007bff';
+    backButton.style.color = '#fff';
+    backButton.style.cursor = 'pointer';
+
+    // 将按钮添加到页面中
+    document.body.appendChild(backButton);
+
+    // 点击按钮时滚动到页面顶部
+    backButton.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
